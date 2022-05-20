@@ -16,7 +16,7 @@ extension Int {
         Int(arc4random_uniform(UInt32(upper))) // [0, upper -1]
     }
     
-   public static func random(_ count: Int, in range: CountableRange<Int>) -> [Int] {
+   public static func random(count: Int, in range: CountableRange<Int>) -> [Int] {
         var array: [Int] = []
         let delta = range.upperBound - range.lowerBound
         for _ in 0..<count {
