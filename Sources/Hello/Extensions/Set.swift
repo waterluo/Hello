@@ -11,7 +11,7 @@ import Foundation
 /// then you might find this syntactic sugar function to be of use
 @available(macOS 10.15, iOS 13.0, watchOS 6.0, tvOS 13.0, *)
 extension Set where Element: Identifiable {
-    mutating func toggleMembership(of element: Element) {
+   public mutating func toggleMembership(of element: Element) {
         if let index = index(matching: element) {
             remove(at: index)
         } else {

@@ -9,7 +9,7 @@ import Foundation
 
 
 extension String {
-    var removingDuplicateCharacters: String {
+   public var removingDuplicateCharacters: String {
         reduce(into: "") { sofar, element in
             if !sofar.contains(element) {
                 sofar.append(element)

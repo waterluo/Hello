@@ -17,7 +17,7 @@ import Foundation
 /// (though there's nothing to restrict them from doing so; it's just a naming choice)
 @available(macOS 10.15, iOS 13.0, watchOS 6.0, tvOS 13.0, *)
 extension Collection where Element: Identifiable {
-    func index(matching element: Element) -> Self.Index? {
+   public func index(matching element: Element) -> Self.Index? {
         firstIndex(where: { $0.id == element.id })
     }
 }
@@ -35,13 +35,13 @@ extension Collection where Element: Identifiable {
 /// (or subscripts on vars on that var, etc.)
 @available(macOS 10.15, iOS 13.0, watchOS 6.0, tvOS 13.0, *)
 extension RangeReplaceableCollection where Element: Identifiable {
-    mutating func remove(_ element: Element) {
+   public mutating func remove(_ element: Element) {
             if let index = index(matching: element) {
                 remove(at: index)
             }
     }
     
-    subscript(_ element: Element) -> Element {
+   public subscript(_ element: Element) -> Element {
         get {
             if let index = index(matching: element) {
                 return self[index]

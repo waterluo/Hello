@@ -8,7 +8,7 @@
 import Foundation
 
 public struct Time {
-    static func test(_ title: String,_ task: ()->Void) {
+    public static func test(_ title: String,_ task: ()->Void) {
         print(title)
         let begin = CFAbsoluteTimeGetCurrent()
         task()

@@ -8,7 +8,8 @@
 import Foundation
 
 extension Character {
-    var isEmoji: Bool {
+    @available(macOS 10.12.2, iOS 10.2, tvOS 10.1, watchOS 3.1.1, *)
+    public var isEmoji: Bool {
         /// Swift does not have a way to ask if a Character isEmoji
         /// but it does let us check to see if our component scalars isEmoji
         /// unfortunately unicode allows certain scalars (like 1)
@@ -19,14 +20,9 @@ extension Character {
         /// (the start of the "miscellaneous items" section)
         /// or check to see if this is a multiple scalar unicode sequence
         /// (e.g. a 1 with a unicode modifier to force it to be presented as emoji 1️⃣)
-        if #available(macOS 10.12.2, iOS 10.2, tvOS 10.1, watchOS 3.1.1, *) {
-            if let firstScalar = unicodeScalars.first, firstScalar.properties.isEmoji {
-                return (firstScalar.value >= 0x238d || unicodeScalars.count > 1)
-            } else {
-                return false
-            }
+        if let firstScalar = unicodeScalars.first, firstScalar.properties.isEmoji {
+            return (firstScalar.value >= 0x238d || unicodeScalars.count > 1)
         } else {
-            // Fallback on earlier versions
             return false
         }
     }
