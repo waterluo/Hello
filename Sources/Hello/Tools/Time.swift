@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Time {
+public struct Time {
     static func test(_ title: String,_ task: ()->Void) {
         print(title)
         let begin = CFAbsoluteTimeGetCurrent()
