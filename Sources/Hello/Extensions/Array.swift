@@ -8,6 +8,7 @@
 import Foundation
 
 extension Array {
+    
     public var oneAndOnly: Element? {
         if count == 1 {
             return first
@@ -30,6 +31,7 @@ extension Array {
 
 @available(macOS 10.13, iOS 11.0, watchOS 4.0, tvOS 11.0, *)
 extension Array where Element == NSItemProvider {
+    
     public func loadObjects<T>(ofType theType: T.Type, firstOnly: Bool = false, using load: @escaping (T) -> Void) -> Bool where T: NSItemProviderReading {
         if let provider = first(where: { $0.canLoadObject(ofClass: theType) }) {
             provider.loadObject(ofClass: theType) { object, error in
@@ -43,6 +45,7 @@ extension Array where Element == NSItemProvider {
         }
         return false
     }
+    
     public func loadObjects<T>(ofType theType: T.Type, firstOnly: Bool = false, using load: @escaping (T) -> Void) -> Bool where T: _ObjectiveCBridgeable, T._ObjectiveCType: NSItemProviderReading {
         if let provider = first(where: { $0.canLoadObject(ofClass: theType) }) {
             let _ = provider.loadObject(ofClass: theType) { object, error in

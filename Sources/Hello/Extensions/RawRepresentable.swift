@@ -14,6 +14,7 @@ import Foundation
 /// then all it takes to make something that is Codable be RawRepresentable is to declare it to be so
 /// (it will then get the default implementions needed to be a RawRepresentable)
 extension RawRepresentable where Self: Codable {
+    
     public var rawValue: String {
         if let json = try? JSONEncoder().encode(self), let string = String(data: json, encoding: .utf8) {
             return string
@@ -21,6 +22,7 @@ extension RawRepresentable where Self: Codable {
             return ""
         }
     }
+    
     public init?(rawValue: String) {
         if let value = try? JSONDecoder().decode(Self.self, from: Data(rawValue.utf8)) {
             self = value

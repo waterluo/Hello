@@ -8,6 +8,7 @@
 import Foundation
 
 extension Character {
+    
     @available(macOS 10.12.2, iOS 10.2, tvOS 10.1, watchOS 3.1.1, *)
     public var isEmoji: Bool {
         /// Swift does not have a way to ask if a Character isEmoji

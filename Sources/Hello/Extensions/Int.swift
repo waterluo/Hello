@@ -8,15 +8,16 @@
 import Foundation
 
 extension Int {
-   public static func random() -> Int {
-        return Int(arc4random())  // 这里只能生成正整数。
+    
+    public static func random() -> Int {
+        Int(arc4random())  // 这里只能生成正整数。
     }
     
-   public static func random(in upper: Int) -> Int {
+    public static func random(in upper: Int) -> Int {
         Int(arc4random_uniform(UInt32(upper))) // [0, upper -1]
     }
     
-   public static func random(count: Int, in range: CountableRange<Int>) -> [Int] {
+    public static func random(count: Int, in range: CountableRange<Int>) -> [Int] {
         var array: [Int] = []
         let delta = range.upperBound - range.lowerBound
         for _ in 0..<count {
@@ -25,7 +26,7 @@ extension Int {
         return array
     }
     
-   public static func isAscOrder(_ array: [Int]) -> Bool {
+    public static func isAscOrder(_ array: [Int]) -> Bool {
         for i in 1..<array.count {
             if array[i-1] > array[i] {
                 return false
