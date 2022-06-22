@@ -7,7 +7,6 @@
 
 import Foundation
 
-
 /// in a Collection of Identifiables
 /// we often might want to find the element that has the same id
 /// as an Identifiable we already have in hand

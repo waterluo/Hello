@@ -7,9 +7,7 @@
 
 import Foundation
 
-
 extension String {
-    
     public var removingDuplicateCharacters: String {
         reduce(into: "") { sofar, element in
             if !sofar.contains(element) {
